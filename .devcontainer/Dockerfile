@@ -16,6 +16,12 @@ RUN groupadd --gid $USER_GID $USERNAME \
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y python3-pip
 RUN apt-get install -y ros-$ROS_DISTRO-rviz2
+
+# Elfin dependancies
+RUN apt-get install -y ros-humble-joint-trajectory-controller ros-humble-controller-manager ros-humble-trajectory-msgs ros-humble-gazebo-ros2-control* ros-humble-position-controllers
+RUN apt-get install -y build-essential libgtk-3-dev ros-humble-moveit ros-humble-ament*
+RUN pip3 install wxpython transforms3d
+
 ENV SHELL /bin/bash
 
 # ********************************************************
